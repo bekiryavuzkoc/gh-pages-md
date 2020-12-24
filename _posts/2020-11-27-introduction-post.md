@@ -4,6 +4,7 @@ description: 1
 ---
 
 <huawei-codelab-about codelab-title="Huawei Video Kit" last-updated="2020-12-09T13:20:13-07:00" authors="Huawei Codelab Team">
+
 <div class="codelab-title">
 <div class="token">Huawei Video Kit</div></div>
 <div class="about-card">
@@ -33,5 +34,6 @@ In this codelab, you will learn how to:
 	<li>Integrate and use abilities of Image Vision SDK, apply filters to image</li>
 	<li>Using coroutines to achieve async filtering for having a battery efficient and high performant image filtering application.</li>
 </ul>
-
+
+
 

@@ -29,48 +29,50 @@ plug-in in the project's build.gradle file.**
 
   
   
-  ```
-  allprojects {
-          repositories {
-              maven { url 'https://developer.huawei.com/repo/' }
-            ...
-          }
-      }
-  ```
+  <pre><div id="copy-button1" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">allprojects </span><span class="pun">{</span><span class="pln">
+  		repositories </span><span class="pun">{</span><span class="pln">
+  			maven </span><span class="pun">{</span><span class="pln"> url </span><span class="str">'https://developer.huawei.com/repo/'</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+  			</span><span class="pun">...</span><span class="pln">
+  		</span><span class="pun">}</span><span class="pln">
+  	</span><span class="pun">}</span><span class="pln">
+  	</span></code></pre>
   
 - Go to **buildscript** \> **repositories** and configure the Maven
   repository address for the HMS Core SDK.
 
-      buildscript {
-              repositories {
-                 maven {url 'https://developer.huawei.com/repo/'}
-                  ...
-              }
-              ...
-          }
-
+  <pre><div id="copy-button2" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">buildscript </span><span class="pun">{</span><span class="pln">
+  		repositories </span><span class="pun">{</span><span class="pln">
+  		   maven </span><span class="pun">{</span><span class="pln">url </span><span class="str">'https://developer.huawei.com/repo/'</span><span class="pun">}</span><span class="pln">
+  			</span><span class="pun">...</span><span class="pln">
+  		</span><span class="pun">}</span><span class="pln">
+  		</span><span class="pun">...</span><span class="pln">
+  	</span><span class="pun">}</span><span class="pln">
+	</span></code></pre>
+  
 - Go to **buildscript** \> **dependencies** and add build
   dependencies.
 
-      buildscript {
-              dependencies {
-                              //Replace {agconnect_version} with the actual AGC plugin version number.
-                              //Example: classpath 'com.huawei.agconnect:agcp: 1.4.1.300'
-                  classpath 'com.huawei.agconnect:agcp:{agconnect_version}'
-              }
-          }
+  <pre><div id="copy-button3" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">buildscript </span><span class="pun">{</span><span class="pln">
+  		dependencies </span><span class="pun">{</span><span class="pln">
+       </span><span class="str">                   //Replace {agconnect_version} with the actual AGC plugin version number.</span><span class="pln">
+       </span><span class="str">                   //Example: classpath 'com.huawei.agconnect:agcp: 1.4.1.300'</span><span class="pln">
+  			classpath </span><span class="str">'com.huawei.agconnect:agcp:{agconnect_version}'</span><span class="pln">
+  		</span><span class="pun">}</span><span class="pln">
+  	</span><span class="pun">}</span><span class="pln">
+  	</span></code></pre>
 
 **2. Configure the dependency package in the app's build.gradle file.**
 
 - Add a dependency package to the **dependencies** section in the
   **build.gradle** file.
 
-      dependencies {
-              ...
-                      //Video Kit
-              implementation 'com.huawei.hms:videokit-player:1.0.1.300'
-              ...
-          }
+  <pre><div id="copy-button4" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">dependencies </span><span class="pun">{</span><span class="pln">
+  		</span><span class="pun">...</span><span class="pln">
+      </span><span class="str">            //Video Kit</span><span class="pln">
+  		implementation </span><span class="str">'com.huawei.hms:videokit-player:1.0.1.300'</span><span class="pln">
+  		</span><span class="pun">...</span><span class="pln">
+  	</span><span class="pun">}</span><span class="pln">
+  	</span></code></pre>
 
 
   For Video Kit, please refer to [latest
@@ -79,47 +81,52 @@ plug-in in the project's build.gradle file.**
 - Add the following information under **apply plugin:
   'com.android.application'** in the file header:
 
-      apply plugin: 'com.huawei.agconnect'
+  <pre><div id="copy-button6" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="pln">apply plugin</span><span class="pun">:</span><span class="pln"> </span><span class="str">'com.huawei.agconnect'</span><span class="pln">
+  	</span></code></pre>
 
 **3. Configure obfuscation scripts.**
 
 - Configure the following information in the
   **app/proguard-rules.pro** file:
 
-              -ignorewarnings
-              -keepattributes *Annotation*
-              -keepattributes Exceptions
-              -keepattributes InnerClasses
-              -keepattributes Signature
-              -keepattributes SourceFile,LineNumberTable
-              -keep class com.hianalytics.android.**{*;}
-              -keep class com.huawei.updatesdk.**{*;}
-              -keep class com.huawei.hms.**{*;}
-
+  <pre><div id="copy-button7" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>                <span class="pun">-</span><span class="pln">ignorewarnings</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="pun">*</span><span class="typ">Annotation</span><span class="pun">*</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">Exceptions</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">InnerClasses</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">Signature</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keepattributes </span><span class="typ">SourceFile</span><span class="pun">,</span><span class="typ">LineNumberTable</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">hianalytics</span><span class="pun">.</span><span class="pln">android</span><span class="pun">.**{*;}</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">updatesdk</span><span class="pun">.**{*;}</span><span class="pln">
+  		</span><span class="pun">-</span><span class="pln">keep </span><span class="kwd">class</span><span class="pln"> com</span><span class="pun">.</span><span class="pln">huawei</span><span class="pun">.</span><span class="pln">hms</span><span class="pun">.**{*;}</span><span class="pln">
+		</span></code></pre>
+  
 - If you are using AndResGuard, add it to the allowlist in the
   obfuscation script file.
 
-              "R.string.hms*",
-              "R.string.connect_server_fail_prompt_toast",
-              "R.string.getting_message_fail_prompt_toast",
-              "R.string.no_available_network_prompt_toast",
-              "R.string.third_app_*",
-              "R.string.upsdk_*",
-              "R.layout.hms*",
-              "R.layout.upsdk_*", 
-              "R.drawable.upsdk*",
-              "R.color.upsdk*", 
-              "R.dimen.upsdk*",
-              "R.style.upsdk*",
-              "R.string.agc*"
+  <pre><div id="copy-button8" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>               <span class="str"> "R.string.hms*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.connect_server_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.getting_message_fail_prompt_toast"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.no_available_network_prompt_toast"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.third_app_*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.upsdk_*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.layout.hms*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.layout.upsdk_*"</span><span class="pun">,</span><span class="pln"> 
+  		</span><span class="str">"R.drawable.upsdk*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.color.upsdk*"</span><span class="pun">,</span><span class="pln"> 
+  		</span><span class="str">"R.dimen.upsdk*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.style.upsdk*"</span><span class="pun">,</span><span class="pln">
+  		</span><span class="str">"R.string.agc*"</span><span class="pln">
+  		</span></code></pre>
 
 **4. Configure permissions in the AndroidManifest.xml file.**
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="com.huawei.permission.SECURITY_DIAGNOSE"/>
+<pre><div id="copy-button9" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.INTERNET"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_NETWORK_STATE"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_WIFI_STATE"</span><span class="tag">/&gt;</span><span class="pln">
+</span><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"com.huawei.permission.SECURITY_DIAGNOSE"</span><span class="tag">/&gt;</span><span class="pln">
+  </span></code></pre>
 
 
 **Step 4**: In the Android Studio window, choose **File** \> **Sync
 Project with Gradle Files** to synchronize the project.
+

@@ -9,9 +9,6 @@ WisePlayerInit Object.**
 <pre><div id="copy-button10" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    //TODO Initializing of Wise Player Factory
 <cite class="pln">
 </cite></code></pre>
-
-       //TODO Initializing of Wise Player Factory
-
 **2. Create the Wise Player Factory instance**
 
 <pre><div id="copy-button11" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>    val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
@@ -29,20 +26,7 @@ WisePlayerInit Object.**
 <span class="pln">
 </span></code></pre>
 
-        val factoryOptions = WisePlayerFactoryOptions.Builder().setDeviceId("xxx").build()
-        // In the multi-process scenario, the onCreate method in Application is called multiple times.
-        // The app needs to call the WisePlayerFactory.initFactory() API in the onCreate method of the app process (named "app package name") 
-        // and WisePlayer process (named "app package name:player").
-        WisePlayerFactory.initFactory(context, factoryOptions, object : InitFactoryCallback {
-            override fun onSuccess(factory: WisePlayerFactory) {
-                wisePlayerFactory = factory
-            }
-            override fun onFailure(errorCode: Int, msg: String) {
-                Log.d("WisePlayerInit", "onFailure: $errorCode - $msg")
-            }
-        })
-        
-        
+​        
 
 
 <p>Description of <strong>Wise Player Factory</strong> is as following:<br></p>
@@ -72,22 +56,28 @@ WisePlayerInit Object.**
 **3. Locate following line and set the EditTexts Urls in MainActivity to
 play related buttons**
 
-       // TODO Set video Url or Urls
+<pre><div id="copy-button12" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>   // TODO Set video Url or Urls
+<span class="pln">
+</span></code></pre>
 
 **4.Set the EditTexts Urls**
 
-     edtUrl.setText(resources.getString(R.string.single_url))
-     edtMultipleUrl.setText(resources.getString(R.string.multiple_url))
-
+<pre><div id="copy-button13" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> edtUrl.setText(resources.getString(R.string.single_url))
+ edtMultipleUrl.setText(resources.getString(R.string.multiple_url))
+ <span class="pln"></span></code></pre>
 
 **5. Locate following line and create Wise Player Instance in
 WisePlayerInit Object.**
 
-      // TODO Initializing of Wise Player Instance
+<pre><div id="copy-button14" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  // TODO Initializing of Wise Player Instance
+<span class="pln">
+</span></code></pre>
 
 **6. Create Wise Player Instance**
 
-      return wisePlayerFactory.createWisePlayer()
+<pre><div id="copy-button15" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  return wisePlayerFactory.createWisePlayer()
+<span class="pln">
+</span></code></pre>
 
 **Note: Frame Layout is necessary for SurfaceView to display videos,
 otherwise only audio will be listened**
@@ -96,84 +86,114 @@ otherwise only audio will be listened**
 
 **7. Locate following line in Play Activity.**
 
-      //TODO Setting the Listeners
+<pre><div id="copy-button17" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Setting the Listeners
+<span class="pln">
+</span></code></pre>
 
 **8. Set listeners in Play Activity.**
 
-      player.setReadyListener(this)
-      player.setErrorListener(this)
-      player.setEventListener(this)
-      player.setResolutionUpdatedListener(this)
-      player.setLoadingListener(this)
-      player.setPlayEndListener(this)
-      player.setSeekEndListener(this)
-
+<pre><div id="copy-button18" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setReadyListener(this)
+  player.setErrorListener(this)
+  player.setEventListener(this)
+  player.setResolutionUpdatedListener(this)
+  player.setLoadingListener(this)
+  player.setPlayEndListener(this)
+  player.setSeekEndListener(this)
+  <span class="pln">
+</span></code></pre>
 
 **9. Locate following line in Play Activity.**
 
-     //TODO Callback Listener
+<pre><div id="copy-button19" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO Callback Listener
+<span class="pln">
+</span></code></pre>
 
 **10. Set the Callback Listener in Play Activity.**
 
-      surfaceView.holder.addCallback(this)
+<pre><div id="copy-button20" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  surfaceView.holder.addCallback(this)
+<span class="pln">
+</span></code></pre>
 
 **11. Locate following line in Play Activity.**
 
-     //TODO Callback Listener
+<pre><div id="copy-button21" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code> //TODO Callback Listener
+<span class="pln">
+</span></code></pre>
 
 **12. Set the Seekbar Listener in Play Activity.**
 
-      seekBar.setOnSeekBarChangeListener(this)
+<pre><div id="copy-button22" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  seekBar.setOnSeekBarChangeListener(this)
+<span class="pln">
+</span></code></pre>
 
 **13. Locate following line in Play Activity.**
 
-      //TODO Starting the Player
-
+<pre><div id="copy-button23" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Starting the Player
+	<span class="pln">
+</span></code></pre>
 
 **14. Start Wise Player in Play Activity.**
 
-      player?.start()
+<pre><div id="copy-button24" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player?.start()
+<span class="pln">
+</span></code></pre>
 
 **15. Locate following line in Play Activity.**
 
-      //TODO Surface Change
+<pre><div id="copy-button25" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Change
+<span class="pln">
+</span></code></pre>
 
 **16. Set surface change to Wise Player.**
 
-      player.setSurfaceChange()
+<pre><div id="copy-button26" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setSurfaceChange()
+<span class="pln">
+</span></code></pre>
 
 **17. Locate following line in Play Activity.**
 
-      //TODO Surface Destroy
+<pre><div id="copy-button27" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Destroy
+<span class="pln">
+</span></code></pre>
 
 **18. Suspend the Wise Player if surface is destroyed.**
 
-      player.suspend()
+<pre><div id="copy-button28" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.suspend()
+<span class="pln">
+</span></code></pre>
 
 **19. Locate following line in Play Activity.**
 
-      //TODO Surface Create
+<pre><div id="copy-button29" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Surface Create
+<span class="pln">
+</span></code></pre>
 
 **20. Resume Wise Player with the current time when app is sent to
 foreground.**
 
-      player.setView(surfaceView)
-      player.resume(PlayerConstants.ResumeType.KEEP)
+<pre><div id="copy-button30" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setView(surfaceView)
+  player.resume(PlayerConstants.ResumeType.KEEP)
+<span class="pln">
+</span></code></pre>
 
 **21. Locate following line in Play Activity.**
 
-      //TODO Release Wise Player
+<pre><div id="copy-button31" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  //TODO Release Wise Player
+<span class="pln">
+</span></code></pre>
 
 **22. Release Wise Player and listeners in Play Activity.**
 
-      player.setErrorListener(null)
-      player.setEventListener(null)
-      player.setResolutionUpdatedListener(null)
-      player.setReadyListener(null)
-      player.setLoadingListener(null)
-      player.setPlayEndListener(null)
-      player.setSeekEndListener(null)
-      player.release()
+<pre><div id="copy-button32" class="copy-btn" title="Copy" onclick="copyCode(this.id)"></div><code>  player.setErrorListener(null)
+  player.setEventListener(null)
+  player.setResolutionUpdatedListener(null)
+  player.setReadyListener(null)
+  player.setLoadingListener(null)
+  player.setPlayEndListener(null)
+  player.setSeekEndListener(null)
+  player.release()
+<span class="pln">
+</span></code></pre>
 
 
 
